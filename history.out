@@ -1,0 +1,76 @@
+    1  pwd
+    2  ls
+    3  whoami
+    4  cat /etc/os-release
+    5  groupadd students
+    6  getent group students
+    7  useradd -u 1234 -g students -m user1
+    8  id user1
+    9  passwd user1
+   10  chage -M 90 user1
+   11  chage -1 user1
+   12  whoami
+   13  id user1
+   14  chage -1 user1
+   15  chage -l user1
+   16  find / -type f -perm -4000 2>/dev/null
+   17  ps -eo pid,ruid,euid,user,comm | awk '$2 != 0 && $3 == 0'
+   18  ps -eo pid,ruid,euid,user,comm | awk '$2 != 0 && $3 == 0' > ~/process-monitor.out
+   19  cat ~/process-monitor.out
+   20  echo 'Secret file' > /root/test-secret.txt
+   21  chmod 600 /root/test-secret.txt
+   22  1s -l /root/test-secret.txt
+   23  1s -1 /root/test-secret.txt
+   24  whoami
+   25  echo "test secret" > /root/test-secret.txt
+   26  chmod 600 /root/test-secret.txt
+   27  ls -l /root/test-secret.txt
+   28  cp /usr/bin/cat /home/user1/mycat
+   29  chowm user1:students/ home/user1/mycat
+   30  chown user1:students/ home/user1/mycat
+   31  id user1
+   32  chown user1 /home/user1/mycat
+   33  ls -l /home/user1/mycat
+   34  chmod u+s /home/user1/mycat
+   35  ls -l /home/user1/mycat
+   36  chown root /home/user1/mycat
+   37  l1 -l /home/user1/mycat
+   38  l1 -l /home/root/mycat
+   39  ls -l /home/root/mycat
+   40  ls -l /home/user1
+   41  ls -l /home/user1/mycat
+   42  chmod u+s /home/user1/mycat
+   43  ls -l home/user1/mycat
+   44  find /home/user1 -name mycat 2>/dev/null
+   45  whoami
+   46  chmod u+s /home/user1/mycat
+   47  ls -l /home/user1/mycat
+   48  stat /home/user1/mycat >> ~/stat.out
+   49  ls -l ~/stat.out
+   50  cat ~/stat.out
+   51  which chown
+   52  touch /home/user1/cap-test.txt
+   53  chown user1/home/user1/cap-test.txt
+   54  chown user1 /home/user1/cap-test.txt
+   55  ls -l /home/user1/cap-test.txt
+   56  cp /usr/bin/chown /home/user1/mychown
+   57  chown user1 /home/user1/mychown
+   58  ls -l /home/user1/mychowm
+   59  ls -l /usr/bin/chown
+   60  ls -l home/user1/mychown
+   61  cp /usr/bin/chown /home/user1/mychown
+   62  ls -l /home/user1/mychown
+   63  setcap cap_chown+ep /home/user1/mychown
+   64  getcap /home/user1/mychown
+   65  stat /home/user1/mychown >> ~/stat.out
+   66  getcap /home/user1/mychown > ~/getcap.out
+   67  cat ~/getcap.out
+   68  grep -A l '/home/user1/mychown' ~/stat.out
+   69  grep -A 1 '/home/user1/mychown' ~/stat.out
+   70  which date
+   71  visudo -f /etc/sudoers.d/user1-time
+   72  cat /etc/sudoers.d/user1-time
+   73  sudo -l - U user1
+   74  sudo -1 -U user1
+   75  sudo -l -U user1
+   76  history > ~/history.out
